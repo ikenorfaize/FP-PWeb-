@@ -25,7 +25,7 @@ if ($conn->connect_error) {
 $sql = "USE bookstore";
 $conn->query($sql);
 
-$sql = "SELECT users.UserName, users.Password, customer.CustomerName, customer.CustomerIC, customer.CustomerEmail, customer.CustomerPhone, customer.CustomerGender, customer.CustomerAddress
+$sql = "SELECT users.UserName, users.Password, customer.CustomerName, customer.CustomerEmail, customer.CustomerPhone, customer.CustomerGender, customer.CustomerAddress
 	FROM users, customer
 	WHERE users.UserID = customer.UserID AND users.UserID = ".$_SESSION['id']."";
 $result = $conn->query($sql);
@@ -33,7 +33,6 @@ while($row = $result->fetch_assoc()){
 	$oUserName = $row['UserName'];
 	$oPassword = $row['Password'];
 	$oName = $row['CustomerName'];
-	$oIC = $row['CustomerIC'];
 	$oEmail = $row['CustomerEmail'];
 	$oPhone = $row['CustomerPhone'];
 	$oAddress = $row['CustomerAddress'];
@@ -61,15 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$upassword = "";
 				}else{
 					$upassword = $_POST['upassword'];
-
-					if (empty($_POST["ic"])){
-						$icErr = "Please enter your IC number";
-					}else{
-						if(!preg_match("/^[0-9 -]*$/", $ic)){
-							$icErr = "Please enter a valid IC number";
-							$ic = "";
-						}else{
-							$ic = $_POST['ic'];
 
 							if (empty($_POST["email"])){
 								$emailErr = "Please enter your email address";
@@ -118,9 +108,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 													.$_SESSION['id']."";
 													$conn->query($sql);
 
-													$sql = "UPDATE customer SET CustomerName = '".$name."', CustomerPhone = '".$contact."', 
-													CustomerIC = '".$ic."', CustomerEmail = '".$email."', CustomerAddress = '".$address."', 
-													CustomerGender = '".$gender."'";
+													$sql = "UPDATE customer SET CustomerName = '".$name."', CustomerPhone = '".$contact."',
+													CustomerEmail = '".$email."', CustomerAddress = '".$address."', CustomerGender = '".$gender."'";
 													$conn->query($sql);
 
 													header("Location:index.php");
@@ -134,9 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 				}
 			}
-		}
-	}
-}												
+		}											
 function test_input($data){
 	$data = trim($data);
 	$data = stripcslashes($data);
@@ -165,9 +152,6 @@ function test_input($data){
 	New Password:<br><input type="password" name="upassword" placeholder="<?php echo $oPassword; ?>">
 	<span class="error" style="color: red; font-size: 0.8em;"><?php echo $passwordErr;?></span><br><br>
 
-	IC Number:<br><input type="text" name="ic" placeholder="<?php echo $oIC; ?>">
-	<span class="error" style="color: red; font-size: 0.8em;"><?php echo $icErr;?></span><br><br>
-
 	E-mail:<br><input type="text" name="email" placeholder="<?php echo $oEmail; ?>">
 	<span class="error" style="color: red; font-size: 0.8em;"><?php echo $emailErr;?></span><br><br>
 
@@ -188,6 +172,5 @@ function test_input($data){
 </form>
 </div>
 </blockquote>
-</center>
 </body>
 </html>

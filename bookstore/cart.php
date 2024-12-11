@@ -1,12 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
-    // Redirect to login page if the user is not logged in
     header("Location: login.php");
     exit();
 }
 
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -16,12 +14,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch cart items for the logged-in user
 $userID = $_SESSION['id'];
+
+$sqlCustomer = "SELECT CustomerID FROM Customer WHERE UserID = $userID";
+$resultCustomer = $conn->query($sqlCustomer);
+
+if ($resultCustomer->num_rows > 0) {
+    $customer = $resultCustomer->fetch_assoc();
+    $customerID = $customer['CustomerID'];
+} else {
+    echo "Customer not found.";
+    exit();
+}
+
 $sql = "SELECT c.CartID, b.BookTitle, b.Author, b.Price, c.Quantity, c.TotalPrice 
         FROM Cart c
         JOIN Book b ON c.BookID = b.BookID
-        WHERE c.CustomerID = (SELECT CustomerID FROM Customer WHERE UserID = $userID)";
+        WHERE c.CustomerID = $customerID";
 $result = $conn->query($sql);
 ?>
 
@@ -52,7 +61,7 @@ $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             echo "<table id='cartTable' style='width:100%;'>";
             echo "<tr><th>Book Title</th><th>Author</th><th>Price</th><th>Quantity</th><th>Total Price</th><th>Action</th></tr>";
-            
+
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row['BookTitle'] . "</td>";
@@ -63,16 +72,15 @@ $result = $conn->query($sql);
                 echo "<td><a href='remove_from_cart.php?CartID=" . $row['CartID'] . "'>Remove</a></td>";
                 echo "</tr>";
             }
-            
+
             echo "</table>";
         } else {
             echo "<p>Your cart is empty.</p>";
         }
 
-        // Total cost
         $sqlTotal = "SELECT SUM(c.TotalPrice) AS TotalCost 
                      FROM Cart c 
-                     WHERE c.CustomerID = (SELECT CustomerID FROM Customer WHERE UserID = $userID)";
+                     WHERE c.CustomerID = $customerID";
         $resultTotal = $conn->query($sqlTotal);
         $totalRow = $resultTotal->fetch_assoc();
         echo "<h3>Total: Rp. " . number_format($totalRow['TotalCost'], 2, ',', '.') . "</h3>";

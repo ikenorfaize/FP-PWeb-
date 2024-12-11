@@ -19,8 +19,7 @@ if(isset($_POST['ac'])){
     $sql = "USE bookstore";
     $conn->query($sql);
 
-    // Retrieve customer ID based on the logged-in user's ID
-    $userID = $_SESSION['id']; // Assuming the UserID is stored in the session
+    $userID = $_SESSION['id'];
     $sql = "SELECT CustomerID FROM Customer WHERE UserID = '$userID'";
     $result = $conn->query($sql);
     $customerID = null;
@@ -33,14 +32,12 @@ if(isset($_POST['ac'])){
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()){
         $bookID = $row['BookID'];
-        $quantity = $_POST['quantity'];  // Fixed the array key to match form input
+        $quantity = $_POST['quantity'];
         $price = $row['Price'];
     }
 
-    // Calculate total price
     $totalPrice = $price * $quantity;
 
-    // Insert into cart table with CustomerID
     if ($customerID) {
         $sql = "INSERT INTO cart(CustomerID, BookID, Quantity, Price, TotalPrice) 
                 VALUES('$customerID', '$bookID', $quantity, $price, $totalPrice)";
