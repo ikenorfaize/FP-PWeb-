@@ -1,4 +1,4 @@
-body{
+body {
     font-family: Arial;
     margin: 0 auto;
 }
@@ -6,94 +6,128 @@ body{
 header {
     background-color: rgb(37, 42, 46);
     width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space out the content horizontally */
+    align-items: center; /* Vertically center items */
+    padding: 10px 20px; /* Add some padding */
 }
-header img {
-    margin: 1%;
+
+header .book-logo {
+    margin-left: 0; /* Ensure the logo is on the left */
+    width: 100px; /* Control the size of the logo */
+    height: auto;
 }
-header .hf{
-    float: right;
-    margin: 1.5%;
+
+header .header-buttons {
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
 }
-header .hi{
+
+header .hf {
+    margin-left: 15px; /* Space between buttons */
+}
+
+header .hi {
     background-color: #fff;
     border: none;
     border-radius: 20px;
     text-align: center;
-    transition-duration: 0.5s; 
+    transition-duration: 0.5s;
     padding: 8px 30px;
     cursor: pointer;
     color: #000;
     font-weight: bold;
-    margin-top: 15%;
 }
-header .hi:hover{
+
+header .hi:hover {
     background-color: #ccc;
 }
 
+header .header-button {
+    font-size: 24px;
+    color: #fff;
+    margin-right: 15px; /* Space between cart icon and other buttons */
+    text-decoration: none;
+}
+
+header .header-button:hover {
+    color: #ccc;
+}
 
 table {
     border-collapse: collapse;
 }
-tr{background-color: #fff;}
+
+tr {
+    background-color: #fff;
+}
+
 th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: rgb(0,51,102);
+    background-color: rgb(0, 51, 102);
     color: white;
 }
-table .btn{
+
+table .btn {
     background-color: #ec7115;
     border: none;
     text-align: center;
-    transition-duration: 0.5s; 
+    transition-duration: 0.5s;
     padding: 8px 30px;
     cursor: pointer;
     color: #fff;
     margin-top: 5%;
 }
-table .btn:hover{
+
+table .btn:hover {
     background-color: #e3e3e3;
     color: #ec7115;
 }
 
-.button{
-    background-color: rgb(0,51,102);
+.button {
+    background-color: rgb(0, 51, 102);
     border: none;
     border-radius: 20px;
     text-align: center;
-    transition-duration: 0.5s; 
+    transition-duration: 0.5s;
     padding: 8px 30px;
     cursor: pointer;
     color: #fff;
     margin-top: 5%;
     font-weight: bold;
 }
+
 .button:hover {
-    background-color: rgb(102,255,255);
+    background-color: rgb(102, 255, 255);
     color: #000;
 }
-.cbtn{
+
+.cbtn {
     background-color: #fff;
     border: none;
     border-radius: 20px;
     text-align: center;
-    transition-duration: 0.5s; 
+    transition-duration: 0.5s;
     padding: 8px 30px;
     cursor: pointer;
     color: #000;
     font-weight: bold;
 }
-.cbtn:hover{
+
+.cbtn:hover {
     background-color: #ccc;
 }
 
-form{
-	margin-top: 2%;
+form {
+    margin-top: 2%;
 }
-input[type=text], input[type=password]{	
-	width: 100%;
-	padding: 12px;
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px;
     border-radius: 3px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -102,18 +136,20 @@ input[type=text], input[type=password]{
 }
 
 input[type=text]:focus, input[type=password]:focus {
-    border: 2px solid rgb(0,51,102);
+    border: 2px solid rgb(0, 51, 102);
 }
+
 textarea {
-	outline: none;
-	border: 2px solid #ccc;
+    outline: none;
+    border: 2px solid #ccc;
 }
+
 textarea:focus {
-	border: 2px solid rgb(0,51,102);
+    border: 2px solid rgb(0, 51, 102);
 }
 
 .container {
-	width: 55%;
+    width: 55%;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;

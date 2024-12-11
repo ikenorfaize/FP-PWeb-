@@ -23,7 +23,6 @@ CREATE TABLE Customer (
 	CustomerID int not null AUTO_INCREMENT,
     CustomerName varchar(128),
     CustomerPhone varchar(12),
-    CustomerIC varchar(14),
     CustomerEmail varchar(200),
     CustomerAddress varchar(200),
     CustomerGender varchar(10),
