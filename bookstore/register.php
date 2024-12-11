@@ -77,7 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 $id = $row['UserID'];
                                             }
 
-                                            // Insert into Customer table (without IC)
                                             $sql = "INSERT INTO customer(CustomerName, CustomerPhone, CustomerEmail, CustomerAddress, CustomerGender, UserID) 
                                                     VALUES('" . $name . "', '" . $contact . "', '" . $email . "', '" . $address . "', '" . $gender . "', " . $id . ")";
                                             $conn->query($sql);
@@ -107,7 +106,7 @@ function test_input($data){
 <body>
 <header>
 <blockquote>
-    <a href="index.php"><img src="image/logo.png"></a>
+    <a href="index.php"><img src="image/logo.png" style="width: 100px; height: auto;"></a>
 </blockquote>
 </header>
 <blockquote>

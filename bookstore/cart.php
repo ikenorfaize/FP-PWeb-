@@ -41,10 +41,11 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <center>
     <?php
     if (isset($_SESSION['id'])) {
         echo '<header>';
-        echo '<a href="index.php"><img src="image/book-logo.png" class="book-logo"></a>';
+        echo '<a href="index.php"><img src="image/logo.png" class="book-logo"></a>';
         echo '<div class="header-buttons">';
         echo '<a href="cart.php" class="header-button"><i class="fa fa-shopping-cart" style="font-size:24px"></i></a>';
         echo '<form class="hf" action="logout.php"><input class="hi" type="submit" name="submitButton" value="Logout"></form>';
@@ -88,7 +89,7 @@ $result = $conn->query($sql);
         
         <a href="checkout.php" class="button">Proceed to Checkout</a>
     </div>
-
+    </center>
 </body>
 </html>
 

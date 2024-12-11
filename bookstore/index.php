@@ -64,7 +64,7 @@ $result = $conn->query($sql);
 
 <?php if(isset($_SESSION['id'])){
     echo '<header>';
-    echo '<a href="index.php"><img src="image/book-logo.png" class="book-logo"></a>';
+    echo '<a href="index.php"><img src="image/logo.png" class="book-logo"></a>';
     
     echo '<div class="header-buttons">';
     echo '<a href="cart.php" class="header-button"><i class="fa fa-shopping-cart" style="font-size:24px"></i></a>';
@@ -75,7 +75,7 @@ $result = $conn->query($sql);
     echo '</header>';
 } else {
     echo '<header>';
-    echo '<a href="index.php"><img src="image/book-logo.png" class="book-logo"></a>';
+    echo '<a href="index.php"><img src="image/logo.png" class="book-logo"></a>';
     echo '<div class="header-buttons">';
     echo '<form class="hf" action="Register.php"><input class="hi" type="submit" name="submitButton" value="Register"></form>';
     echo '<form class="hf" action="login.php"><input class="hi" type="submit" name="submitButton" value="Login"></form>';

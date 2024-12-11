@@ -4,17 +4,17 @@ body {
 }
 
 header {
-    background-color: rgb(37, 42, 46);
+    background-color: #D2E0FB;
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Space out the content horizontally */
-    align-items: center; /* Vertically center items */
-    padding: 10px 20px; /* Add some padding */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
 header .book-logo {
-    margin-left: 0; /* Ensure the logo is on the left */
-    width: 100px; /* Control the size of the logo */
+    margin-left: 0;
+    width: 100px;
     height: auto;
 }
 
@@ -25,11 +25,11 @@ header .header-buttons {
 }
 
 header .hf {
-    margin-left: 15px; /* Space between buttons */
+    margin-left: 15px;
 }
 
 header .hi {
-    background-color: #fff;
+    background-color: #F9F3CC;
     border: none;
     border-radius: 20px;
     text-align: center;
@@ -41,18 +41,18 @@ header .hi {
 }
 
 header .hi:hover {
-    background-color: #ccc;
+    background-color: #D7E5CA;
 }
 
 header .header-button {
     font-size: 24px;
-    color: #fff;
-    margin-right: 15px; /* Space between cart icon and other buttons */
+    color: #000;
+    margin-right: 15px;
     text-decoration: none;
 }
 
 header .header-button:hover {
-    color: #ccc;
+    color: #8EACCD;
 }
 
 table {
@@ -60,19 +60,19 @@ table {
 }
 
 tr {
-    background-color: #fff;
+    background-color: #F9F3CC;
 }
 
 th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: rgb(0, 51, 102);
+    background-color: #8EACCD;
     color: white;
 }
 
 table .btn {
-    background-color: #ec7115;
+    background-color: #8EACCD;
     border: none;
     text-align: center;
     transition-duration: 0.5s;
@@ -83,12 +83,12 @@ table .btn {
 }
 
 table .btn:hover {
-    background-color: #e3e3e3;
-    color: #ec7115;
+    background-color: #D7E5CA;
+    color: #8EACCD;
 }
 
 .button {
-    background-color: rgb(0, 51, 102);
+    background-color: #8EACCD;
     border: none;
     border-radius: 20px;
     text-align: center;
@@ -101,12 +101,12 @@ table .btn:hover {
 }
 
 .button:hover {
-    background-color: rgb(102, 255, 255);
+    background-color: #D2E0FB;
     color: #000;
 }
 
 .cbtn {
-    background-color: #fff;
+    background-color: #F9F3CC;
     border: none;
     border-radius: 20px;
     text-align: center;
@@ -118,7 +118,7 @@ table .btn:hover {
 }
 
 .cbtn:hover {
-    background-color: #ccc;
+    background-color: #D7E5CA;
 }
 
 form {
@@ -136,7 +136,7 @@ input[type=text], input[type=password] {
 }
 
 input[type=text]:focus, input[type=password]:focus {
-    border: 2px solid rgb(0, 51, 102);
+    border: 2px solid #8EACCD;
 }
 
 textarea {
@@ -145,13 +145,13 @@ textarea {
 }
 
 textarea:focus {
-    border: 2px solid rgb(0, 51, 102);
+    border: 2px solid #8EACCD;
 }
 
 .container {
     width: 55%;
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: #D7E5CA;
     padding: 20px;
-    margin: 0 auto;
+    margin: 0 auto;
 }
